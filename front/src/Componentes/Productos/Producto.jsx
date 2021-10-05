@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+
+import DetalleProducto from "../DetalleProducto/DetalleProducto";
+import Modal from "../DetalleProducto/Modal";
 
 import "./Producto.css";
 
 function Producto({ producto, agregarProductosCarro }) {
+  const [active, setActive] = useState(false);
+
+  const toogle = () => {
+    setActive(!active);
+  };
+
   const obtenerImagenProducto = (nombreImagen) => {
     fetch(` http://localhost:5000/imagenes/ ${nombreImagen}`).then();
   };
@@ -26,6 +35,18 @@ function Producto({ producto, agregarProductosCarro }) {
       >
         Add item to cart
       </a>
+      <a className="cta" onClick={() => toogle(producto)}>
+        Detalle producto PDP
+      </a>
+      <Modal active={active} toogle={toogle}>
+        <div className="contenedor_producto_modal">
+          <img className="producto" src={producto.image} alt={producto.name} />
+          <p className="nombreProducto"><h3>Marca</h3>{producto.brand}</p>
+          <p className="descripcion"><h3>Categoria</h3> {producto.category}</p>
+          <p className="descripcion"> <h3>Precio</h3> {producto.price}</p>
+          <p className="descripcion"><h3>Rating</h3> {producto.rating}</p>
+        </div>
+      </Modal>
     </div>
   );
 }

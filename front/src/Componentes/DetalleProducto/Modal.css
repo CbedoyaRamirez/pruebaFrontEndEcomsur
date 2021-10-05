@@ -1,0 +1,50 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__ventana {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15;
+  box-shadow: 2px 12px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  min-width: 320px;
+}
+
+.modal__contenido {
+  width: 300px;
+  height: 600px;
+}
+
+.modal__background {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+}
+
+.modal_cta {
+  padding: 15px;
+  color: #fff;
+  background: #2b83ff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 30px 30px;
+  text-align: center;
+}

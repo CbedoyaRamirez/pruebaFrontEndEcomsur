@@ -10,9 +10,11 @@ import DetalleCarro from "./Componentes/DetalleCarro/DetalleCarro";
 
 const URL = "http://localhost:5000/api/products";
 
+
+
 const App = () => {
   let listadoProductoCarro = [];
-  const [carro, setCarro] = useState([]);
+  const [carro, setCarro] = useState([{}]);
   const [listaProductos, setlistaProductos] = useState([]);
 
   // -------------------------------------------------
