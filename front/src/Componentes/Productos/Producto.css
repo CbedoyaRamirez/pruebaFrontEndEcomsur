@@ -15,6 +15,11 @@
     width: 150px;
 }
 
+.nombreProducto {
+    color: #237fff;
+    font-weight: 700;
+}
+
 .descripcion {
     font-size: .9rem
 }

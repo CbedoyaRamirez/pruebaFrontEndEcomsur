@@ -1,0 +1,17 @@
+.buscador {
+    margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.buscador__input {
+    width: 50%;
+    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: #237fff;
+}
+
+.buscador__input::placeholder {
+    color: #237fff;
+}

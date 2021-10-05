@@ -5,6 +5,7 @@ import Productos from "./Componentes/Productos/Productos";
 
 import "./App.css";
 import Menu from "./Componentes/Menu/Menu";
+import Buscador from "./Componentes/Buscador/Buscador";
 
 const URL = "http://localhost:5000/api/products";
 
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <Layout>
       <Menu />
+      <Buscador />
       <Productos>{listaProductos}</Productos>
     </Layout>
   );

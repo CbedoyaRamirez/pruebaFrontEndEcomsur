@@ -16,7 +16,7 @@ function Producto(props) {
         src={props.producto.image}
         alt={props.producto.name}
       />
-      <h1>{props.producto.name}</h1>
+      <h1 className="nombreProducto" >{props.producto.name}</h1>
       <p className="descripcion" >{props.producto.description}</p>
       {
         props.producto.countInStock === 0 ? <h1 style={{color: '#9a031e'}} >Sin stock</h1> : ''
