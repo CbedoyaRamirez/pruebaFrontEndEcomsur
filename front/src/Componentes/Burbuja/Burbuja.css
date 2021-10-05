@@ -1,9 +1,12 @@
 .burbuja {
-    width: 100px;
-    height: 25px;
-    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background: #e36414;
     display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: center;
     font-weight: bold;
+    color: #fff;
 }

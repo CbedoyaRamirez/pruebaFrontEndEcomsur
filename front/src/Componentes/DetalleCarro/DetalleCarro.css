@@ -1,0 +1,21 @@
+.detalleCarro {
+    width: 50%;
+    /* position: relative; */
+    height:300px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: flex-start;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+.detalleCarro__item {
+    list-style: none;
+    text-decoration: none;
+}
+
+.detalleCarro__img {
+    width: 2%;
+}

@@ -3,11 +3,11 @@ import Producto from "./Producto";
 
 import './Productos.css'
 
-const Productos = ({children}) => {
+const Productos = ({productos, agregarProductosCarro}) => {
   return (
       <div className="contenedor__productos" >
-          {children.map(prod => (
-            <Producto key={prod._id} producto={prod} />
+          {productos.map(prod => (
+            <Producto agregarProductosCarro={agregarProductosCarro} key={prod._id} producto={prod} />
           ))}
       </div>
     );

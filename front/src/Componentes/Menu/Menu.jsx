@@ -1,9 +1,15 @@
 import React from "react";
-import Burbuja from "../Burbuja/Burbuja";
 
+import Burbuja from "../Burbuja/Burbuja";
+import DetalleCarro from "../DetalleCarro/DetalleCarro";
 import "./Menu.css";
 
-function Menu(props) {
+function Menu({ productosComprados }) {
+
+  const cantidad = Array(productosComprados).reduce((acc, el) => acc + el.cantidad, 0);
+
+  console.log(cantidad);
+
   return (
     <nav className="nav">
       <div className="nav__items">
@@ -11,16 +17,15 @@ function Menu(props) {
         <p className="nav__titulo">Prueba Carlos Bedoya</p>
       </div>
       <div className="nav__carro">
-        <ul>
-          <li className="menu">
-            <Burbuja />
-            <img
-              className="menu__item menu__item--carro"
-              src="./images/carro.png"
-            ></img>
-          </li>
-        </ul>
+        {cantidad !== 0 && !isNaN(cantidad) ? (
+          <Burbuja cantidadElementos={productosComprados.cantidad} />
+        ) : null}
+        <img
+          className="menu__item menu__item--carro"
+          src="./images/carro.png"
+        ></img>
       </div>
+        
     </nav>
   );
 }

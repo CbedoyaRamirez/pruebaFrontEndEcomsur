@@ -6,10 +6,13 @@ import Productos from "./Componentes/Productos/Productos";
 import "./App.css";
 import Menu from "./Componentes/Menu/Menu";
 import Buscador from "./Componentes/Buscador/Buscador";
+import DetalleCarro from "./Componentes/DetalleCarro/DetalleCarro";
 
 const URL = "http://localhost:5000/api/products";
 
 const App = () => {
+  let listadoProductoCarro = [];
+  const [carro, setCarro] = useState([]);
   const [listaProductos, setlistaProductos] = useState([]);
 
   // -------------------------------------------------
@@ -36,11 +39,37 @@ const App = () => {
   }, []);
   // -------------------------------------------------
 
+  const agregarProductosCarro = (producto) => {
+    // listadoProductoCarro.push(producto);
+    console.log(listadoProductoCarro);
+    // console.log(Array(carro));
+    if (listadoProductoCarro.find((prod) => prod._id === producto._id)) {
+      const nuevoCarro = listadoProductoCarro.map((prod) =>
+        prod._id === producto._id
+          ? {
+              ...prod,
+              cantidad: prod.cantidad + 1,
+            }
+          : prod
+      );
+      return setCarro(nuevoCarro);
+    }
+
+    return listadoProductoCarro.push({
+      ...producto,
+      cantidad: 1
+    });
+  };
+
   return (
     <Layout>
-      <Menu />
+      <Menu productosComprados={listadoProductoCarro} />
       <Buscador />
-      <Productos>{listaProductos}</Productos>
+      {/* <DetalleCarro productosComprados={carro} /> */}
+      <Productos
+        agregarProductosCarro={agregarProductosCarro}
+        productos={listaProductos}
+      />
     </Layout>
   );
 };
