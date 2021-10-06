@@ -6,6 +6,8 @@ Node 14.15.0
 
 ## Clonar aplicacion
 
+Se la concede permiso de clonar al siguiente correo : `kbarcelo@ecomsur.com`
+
 1.  se debe realizar la descarga de los fuentes clonando el repositorio con el siguiente comando:
     `git clone https://github.com/CbedoyaRamirez/pruebaFrontEndEcomsur.git`
 
