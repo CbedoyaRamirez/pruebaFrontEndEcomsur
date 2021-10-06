@@ -6,9 +6,7 @@ import "./Menu.css";
 
 function Menu({ productosComprados }) {
 
-  const cantidad = Array(productosComprados).reduce((acc, el) => acc + el.cantidad, 0);
-
-  console.log(cantidad);
+  const cantidad = productosComprados.reduce((acc, el) => acc + el.cantidad, 0);
 
   return (
     <nav className="nav">
@@ -18,7 +16,7 @@ function Menu({ productosComprados }) {
       </div>
       <div className="nav__carro">
         {cantidad !== 0 && !isNaN(cantidad) ? (
-          <Burbuja cantidadElementos={productosComprados.cantidad} />
+          <Burbuja cantidadElementos={cantidad} />
         ) : null}
         <img
           className="menu__item menu__item--carro"

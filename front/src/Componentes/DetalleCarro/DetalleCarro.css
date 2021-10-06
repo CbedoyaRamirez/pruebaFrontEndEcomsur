@@ -8,14 +8,35 @@
     align-items: flex-start;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.detalleCarro__titulo {
+    color: #2b83ff;
 }
 
 .detalleCarro__item {
     list-style: none;
     text-decoration: none;
+    margin: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .detalleCarro__img {
-    width: 2%;
+    width: 6%;
+}
+
+.detalleCarro__cantidad {
+    margin-left:  10px;
+    font-weight: bold;
+}
+
+.cta-eliminar {
+    cursor: pointer;
+    margin: 10px;
 }

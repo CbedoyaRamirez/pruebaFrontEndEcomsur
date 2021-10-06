@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 
 import Layout from "./Componentes/Layout/Layout";
 import Productos from "./Componentes/Productos/Productos";
@@ -7,15 +7,18 @@ import "./App.css";
 import Menu from "./Componentes/Menu/Menu";
 import Buscador from "./Componentes/Buscador/Buscador";
 import DetalleCarro from "./Componentes/DetalleCarro/DetalleCarro";
+import axios from "axios";
+import { shoppingInitialState, shoppingReducer } from "./Reducers/comprarReducer";
+import { TYPES } from "./Actions/comprarAction";
 
 const URL = "http://localhost:5000/api/products";
 
-
-
 const App = () => {
-  let listadoProductoCarro = [];
-  const [carro, setCarro] = useState([{}]);
-  const [listaProductos, setlistaProductos] = useState([]);
+  const [carro, setCarro] = useState([]);
+  const [listaProductos, setListaProductos] = useState([]);
+  const [buscarProductos, setBuscarProductos] = useState([]);
+  // const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
+  // const { productos, carrito } = state;
 
   // -------------------------------------------------
   // DO NOT USE THE CODE BELOW FROM LINES 8 TO 18. THIS IS
@@ -33,20 +36,20 @@ const App = () => {
     getApiResponse();
 
     const obtenerListadoProductos = async () => {
-      const data = await fetch(URL);
-      const lista = await data.json();
-      setlistaProductos(lista);
+      const listadoProd = await axios.get(URL);
+      setBuscarProductos(listadoProd.data);
+      setListaProductos(listadoProd.data);
+      // dispatch({ type: TYPES.AÑADIR, payload: listadoProd.data });
     };
     obtenerListadoProductos();
   }, []);
   // -------------------------------------------------
 
   const agregarProductosCarro = (producto) => {
-    // listadoProductoCarro.push(producto);
-    console.log(listadoProductoCarro);
-    // console.log(Array(carro));
-    if (listadoProductoCarro.find((prod) => prod._id === producto._id)) {
-      const nuevoCarro = listadoProductoCarro.map((prod) =>
+    console.log("carro");
+    console.log(carro);
+    if (Array(carro).find((prod) => prod._id === producto._id)) {
+      const nuevoCarro = Array(carro).map((prod) =>
         prod._id === producto._id
           ? {
               ...prod,
@@ -57,21 +60,43 @@ const App = () => {
       return setCarro(nuevoCarro);
     }
 
-    return listadoProductoCarro.push({
-      ...producto,
-      cantidad: 1
-    });
+    const nuevoObjeto = {...producto , ['cantidad']: 1}
+    return setCarro(Array(nuevoObjeto));
+  };
+
+  const buscarProducto = (producto) => {
+    const keyboard = producto.target.value;
+
+    if (keyboard !== "") {
+      const productoEncontrado = listaProductos.filter((prod) =>
+        String(prod.name)
+          .toLocaleLowerCase()
+          .includes(keyboard.toLocaleLowerCase())
+      );
+      setBuscarProductos(productoEncontrado);
+    } else {
+      setBuscarProductos(listaProductos);
+    }
   };
 
   return (
     <Layout>
-      <Menu productosComprados={listadoProductoCarro} />
-      <Buscador />
-      {/* <DetalleCarro productosComprados={carro} /> */}
-      <Productos
-        agregarProductosCarro={agregarProductosCarro}
-        productos={listaProductos}
-      />
+      <Menu productosComprados={carro} />
+      <Buscador buscarProducto={buscarProducto} />
+      {carro && carro.length > 0 ? (
+        <DetalleCarro productosComprados={carro} />
+      ) : null}
+
+      {listaProductos && listaProductos.length > 0 ? (
+        <Productos
+          agregarProductosCarro={agregarProductosCarro}
+          productos={buscarProductos}
+        />
+      ) : (
+        <h1 className="noencontrados contenedor__productos--noregistros">
+          REGISTROS NO ENCONTRADOS
+        </h1>
+      )}
     </Layout>
   );
 };

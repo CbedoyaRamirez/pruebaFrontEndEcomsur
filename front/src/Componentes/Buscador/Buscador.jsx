@@ -2,10 +2,10 @@ import React from "react";
 
 import './Buscador.css';
 
-function Buscador() {
+function Buscador({buscarProducto}) {
     return (
         <div className="buscador">
-            <input className="buscador__input" placeholder="Buscar Producto" />
+            <input type="search" onChange={buscarProducto}  className="buscador__input" placeholder="Buscar Producto" />
         </div>
     )
 }
