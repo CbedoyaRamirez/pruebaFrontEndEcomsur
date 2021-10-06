@@ -3,7 +3,7 @@ import React from "react";
 import Burbuja from "../Burbuja/Burbuja";
 import "./Menu.css";
 
-function Menu({ productosComprados }) {
+function Menu({ productosComprados, mostrarProductosComprados }) {
 
   const cantidad = productosComprados.reduce((acc, el) => acc + el.cantidad, 0);
 
@@ -19,7 +19,7 @@ function Menu({ productosComprados }) {
         ) : null}
         <img
           className="menu__item menu__item--carro"
-          src="./images/carro.png"
+          src="./images/carro.png" onClick={mostrarProductosComprados}
         ></img>
       </div>
         

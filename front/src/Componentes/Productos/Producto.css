@@ -10,6 +10,7 @@
   border-radius: 10px;
   text-align: center;
   background: #dee2e6;
+  margin: 20px;
 }
 
 
@@ -40,23 +41,13 @@
   margin: 10px;
 }
 
-.cta {
-  padding: 15px;
-  color: #fff;
-  background: #2b83ff;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-}
+
 
 .cta-detalle {
   background: #168aad;
 }
 
-.cta:hover {
-  padding: 19px;
-  transition: padding 50ms ease;
-}
+
 
 .contenedor_producto_modal {
   width: 300px;
@@ -71,9 +62,11 @@
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .contenedor__producto {
-    width: 90%;
-    height: 600px;
+    /* width: 90%; */
+    /* height: 600px; */
+    
+    gap: 30px;
   }
 }

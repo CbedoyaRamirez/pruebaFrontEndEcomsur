@@ -21,8 +21,6 @@ function Producto({ imagenProducto, producto, agregarProductosCarro }) {
 
   return (
     <div className="contenedor_producto">
-      {/* <img className="producto" src={producto.image} alt={producto.name} /> */}
-      {/* <img className="producto" src={obtenerImagenProducto(producto.image)} alt={producto.name} /> */}
       <img className="producto" src={imagenProducto} alt={producto.name} />
       <h1 className="nombreProducto">{producto.name}</h1>
 
@@ -41,7 +39,7 @@ function Producto({ imagenProducto, producto, agregarProductosCarro }) {
         >
           Add item to cart
         </a>
-        <a className="cta cta-detalle" onClick={() => toogle(producto)}>
+        <a className="cta cta-detalle" onClick={() => toogle()}>
           Detalles
         </a>
       </div>

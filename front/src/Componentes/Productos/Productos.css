@@ -1,9 +1,9 @@
 .contenedor__productos {
     width: 100vw;
-    min-width: 600px;
     height:100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+

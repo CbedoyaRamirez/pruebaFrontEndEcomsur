@@ -18,3 +18,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Botones*/
+
+.cta {
+  padding: 15px;
+  color: #fff;
+  background: #2b83ff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cta:hover {
+  padding: 19px;
+  transition: padding 50ms ease;
+}

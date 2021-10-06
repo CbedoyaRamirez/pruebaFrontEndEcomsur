@@ -8,16 +8,26 @@ import Menu from "./Componentes/Menu/Menu";
 import Buscador from "./Componentes/Buscador/Buscador";
 import DetalleCarro from "./Componentes/DetalleCarro/DetalleCarro";
 import axios from "axios";
-import { shoppingInitialState, shoppingReducer } from "./Reducers/comprarReducer";
+import {
+  shoppingInitialState,
+  shoppingReducer,
+} from "./Reducers/comprarReducer";
 import { TYPES } from "./Actions/comprarAction";
+import Modal from "./Componentes/DetalleProducto/Modal";
 
 const URL = "http://localhost:5000/api/products";
 
 const App = () => {
+  const arrayListadoProducto = [];
   const [carro, setCarro] = useState([]);
   const [listaProductos, setListaProductos] = useState([]);
   const [buscarProductos, setBuscarProductos] = useState([]);
   const [encontroProductos, setEncontroProductos] = useState(true);
+  const [active, setActive] = useState(false);
+
+  const toogle = () => {
+    setActive(!active);
+  };
   // const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
   // const { productos, carrito } = state;
 
@@ -43,26 +53,34 @@ const App = () => {
       // dispatch({ type: TYPES.AÑADIR, payload: listadoProd.data });
     };
     obtenerListadoProductos();
+
+    // if(localStorage.getItem("productosCarro") !== null) {
+    //   setCarro(Array(JSON.parse(localStorage.getItem("productosCarro"))));
+    // }
   }, []);
   // -------------------------------------------------
 
   const agregarProductosCarro = (producto) => {
-    console.log("carro");
-    console.log(carro);
-    if (Array(carro).find((prod) => prod._id === producto._id)) {
-      const nuevoCarro = Array(carro).map((prod) =>
-        prod._id === producto._id
-          ? {
-              ...prod,
-              cantidad: prod.cantidad + 1,
-            }
-          : prod
-      );
-      return setCarro(nuevoCarro);
+    setCarro([...carro, producto]);
+
+    if (localStorage.getItem("productosCarro") !== null) {
+      if (carro.find((prod) => prod._id === producto._id)) {
+        const nuevoCarro = carro.map((prod) =>
+          prod._id === producto._id
+            ? {
+                ...prod,
+                cantidad: prod.cantidad + 1,
+              }
+            : prod
+        );
+        localStorage.setItem("productosCarro", JSON.stringify(nuevoCarro));
+        return setCarro([...nuevoCarro]);
+      }
     }
 
-    const nuevoObjeto = {...producto , ['cantidad']: 1}
-    return setCarro(Array(nuevoObjeto));
+    const nuevoObjeto = { ...producto, cantidad: 1 };
+    localStorage.setItem("productosCarro", JSON.stringify(nuevoObjeto));
+    return setCarro([...carro, nuevoObjeto]);
   };
 
   const buscarProducto = (producto) => {
@@ -75,24 +93,25 @@ const App = () => {
           .includes(keyboard.toLocaleLowerCase())
       );
       setBuscarProductos(productoEncontrado);
-      if(productoEncontrado.length === 0) {
-        setEncontroProductos(false)
-      }else {
-        setEncontroProductos(true)
+      if (productoEncontrado.length === 0) {
+        setEncontroProductos(false);
+      } else {
+        setEncontroProductos(true);
       }
     } else {
       setBuscarProductos(listaProductos);
     }
   };
 
+  const eliminarProductoLista = (producto) => {
+    const filtro = carro.filter((prod) => prod._id !== producto._id);
+    setCarro(filtro);
+  };
+
   return (
     <Layout>
-      <Menu productosComprados={carro} />
+      <Menu mostrarProductosComprados={toogle} productosComprados={carro} />
       <Buscador buscarProducto={buscarProducto} />
-      {carro && carro.length > 0 ? (
-        <DetalleCarro productosComprados={carro} />
-      ) : null}
-
       {encontroProductos ? (
         <Productos
           agregarProductosCarro={agregarProductosCarro}
@@ -103,6 +122,32 @@ const App = () => {
           PRODUCTOS NO ENCONTRADOS
         </h1>
       )}
+
+      <Modal active={active} toogle={toogle}>
+        <div className="contenedor_producto_modal">
+          {carro && carro.length > 0 ? (
+            <p className="contenedor__titulo">Productos comprados</p>
+          ) : null}
+          {carro && carro.length > 0 ? (
+            carro.map((prod) => (
+              <li className="detalleCarro__item" key={prod._id}>
+                <img className="detalleCarro__img" src={prod.image} />
+                {prod.name}{" "}
+                <span className="detalleCarro__cantidad">
+                  Cantidad : {prod.cantidad}
+                </span>
+                <img
+                  className="cta-eliminar"
+                  src="../../images/delete.png"
+                  onClick={() => eliminarProductoLista(prod)}
+                />
+              </li>
+            ))
+          ) : (
+            <p>SIN PRODUCTOS EN EL CARRO</p>
+          )}
+        </div>
+      </Modal>
     </Layout>
   );
 };

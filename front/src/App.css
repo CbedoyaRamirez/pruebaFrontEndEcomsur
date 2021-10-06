@@ -9,5 +9,14 @@
 }
 
 .contenedor__productos--noregistros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
     margin: 10px;
+}
+
+.contenedor__titulo {
+    font-weight: bold;
+    font-size: 1.5rem;
 }
