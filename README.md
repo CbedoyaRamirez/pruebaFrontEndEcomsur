@@ -4,9 +4,14 @@
 
 Node 14.15.0
 
+## Clonar aplicacion
+
+1.  se debe realizar la descarga de los fuentes clonando el repositorio con el siguiente comando:
+    `git clone https://github.com/CbedoyaRamirez/pruebaFrontEndEcomsur.git`
+
 ## Instalar y Correr la aplicación
 
-Instalar API (backend) y la aplicacion React (front):
+Una vez clonada la aplicacion se debe realizar lo siguiente:
 
 1. En la carpeta `root` de la aplicacion correr:
    `npm install`
@@ -14,9 +19,9 @@ Instalar API (backend) y la aplicacion React (front):
    `npm install`
 3. Regresa al directorio root `cd ..`.
 
-La aplicación está compuesta de un servidor Express y una instalación básica de Create-React-App (CRA). Todo está configurado para correr con un solo comando
+Para ejecutar la aplicacion se debe correr con un solo comando :
 
-`npm run dev`
+   `npm run dev`
 
 Esto correrá ambas aplicaciones (Express y CRA) al mismo tiempo.
 
