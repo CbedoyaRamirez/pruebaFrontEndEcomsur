@@ -12,7 +12,6 @@
 .modal__ventana {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   width: 200px;
   position: relative;
   background: #fff;

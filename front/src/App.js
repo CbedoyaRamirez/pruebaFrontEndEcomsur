@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 
 import Layout from "./Componentes/Layout/Layout";
 import Productos from "./Componentes/Productos/Productos";
-import "./App.css";
 import Menu from "./Componentes/Menu/Menu";
 import Buscador from "./Componentes/Buscador/Buscador";
 import axios from "axios";
 import Modal from "./Componentes/DetalleProducto/Modal";
 
-const URL = "http://localhost:5000/api/products";
+import "./App.css";
+
+const URLPRODUCTOS = "http://localhost:5000/api/products";
 
 const App = () => {
-  const arrayListadoProducto = [];
   const [carro, setCarro] = useState([]);
   const [listaProductos, setListaProductos] = useState([]);
   const [buscarProductos, setBuscarProductos] = useState([]);
@@ -32,7 +32,7 @@ const App = () => {
     getApiResponse();
 
     const obtenerListadoProductos = async () => {
-      const listadoProd = await axios.get(URL);
+      const listadoProd = await axios.get(URLPRODUCTOS);
       setBuscarProductos(listadoProd.data);
       setListaProductos(listadoProd.data);
     };
