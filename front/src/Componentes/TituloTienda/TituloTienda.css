@@ -1,0 +1,8 @@
+.titulo__tienda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #237fff;
+    font-size: 1.5rem;
+}

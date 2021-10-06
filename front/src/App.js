@@ -8,6 +8,7 @@ import axios from "axios";
 import Modal from "./Componentes/DetalleProducto/Modal";
 
 import "./App.css";
+import TituloTienda from "./Componentes/TituloTienda/TituloTienda";
 
 const URLPRODUCTOS = "http://localhost:5000/api/products";
 
@@ -98,6 +99,7 @@ const App = () => {
     <Layout>
       <Menu mostrarProductosComprados={toogle} productosComprados={carro} />
       <Buscador buscarProducto={buscarProducto} />
+      <TituloTienda />
       {encontroProductos ? (
         <Productos
           agregarProductosCarro={agregarProductosCarro}
