@@ -11,17 +11,9 @@ function Producto({ imagenProducto, producto, agregarProductosCarro }) {
     setActive(!active);
   };
 
-  const obtenerImagenProducto = async (nombreImagen) => {
-    return await axios
-      .get(`http://localhost:5000${nombreImagen}`, {
-        responseType: "blob",
-      })
-      .then((response) => response.data.message);
-  };
-
   return (
     <div className="contenedor_producto">
-      <img className="producto" src={imagenProducto} alt={producto.name} />
+      <img className="producto" src={`http://localhost:5000/${imagenProducto}`} alt={producto.name} />
       <h1 className="nombreProducto">{producto.name}</h1>
 
       {producto.countInStock === 0 ? (
@@ -45,7 +37,7 @@ function Producto({ imagenProducto, producto, agregarProductosCarro }) {
       </div>
       <Modal active={active} toogle={toogle}>
         <div className="contenedor_producto_modal">
-          <img className="producto" src={producto.image} alt={producto.name} />
+          <img className="producto" src={`http://localhost:5000/${imagenProducto}`} alt={producto.name} />
           <div className="nombreProducto">
             <h3>Marca</h3>
             {producto.brand}
