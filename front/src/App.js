@@ -39,7 +39,7 @@ const App = () => {
     obtenerListadoProductos();
 
     if(localStorage.getItem("productosCarro") !== null) {
-      // setCarro([...carro, Array(JSON.parse(localStorage.getItem("productosCarro")))]);
+      setCarro([...JSON.parse(localStorage.getItem("productosCarro"))]);
     }
   }, []);
 
@@ -64,7 +64,8 @@ const App = () => {
       }
     }
     const nuevoObjeto = { ...producto, cantidad: 1 };
-    localStorage.setItem("productosCarro", JSON.stringify(nuevoObjeto));
+    const objLocalStorage = [...carro, nuevoObjeto];
+    localStorage.setItem("productosCarro", JSON.stringify(objLocalStorage));
     return setCarro([...carro, nuevoObjeto]);
   };
 
@@ -116,8 +117,8 @@ const App = () => {
           {carro && carro.length > 0 ? (
             carro.map((prod) => (
               <li className="detalleCarro__item" key={prod._id}>
-                <img className="detalleCarro__img" src={`http://localhost:5000/${prod.image}`} />
-                {prod.name}{" "}
+                <img className="detalleCarro__img" src={`http://localhost:5000/${prod.image}`} alt={prod.name} />
+                <p className="detalleCarro__nombre">{prod.name}</p>
                 <span className="detalleCarro__cantidad">
                   Cantidad : {prod.cantidad}
                 </span>

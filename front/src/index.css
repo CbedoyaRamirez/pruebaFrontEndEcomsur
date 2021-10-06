@@ -32,5 +32,5 @@ code {
 
 .cta:hover {
   padding: 19px;
-  transition: padding 50ms ease;
+  transition: padding 500ms ease;
 }

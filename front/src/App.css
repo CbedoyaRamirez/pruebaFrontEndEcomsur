@@ -25,14 +25,32 @@
 }
 
 .detalleCarro__img {
-    width: 50px;
+    width: 20%;
+    border-radius: 10px;
+    margin: 0 20px;
+    transition: width 800ms ease;
 }
 
+.detalleCarro__img:hover {
+    width: 30%;
+}
+
+.detalleCarro__nombre {
+    font-weight: bold;
+    margin: 10px;
+}
 
 .detalleCarro__item {
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    text-align: left;
     text-decoration: none;
     list-style: none;
-    margin: 20px;
+}
+
+.detalleCarro__cantidad {
+    color: #d00000;
+    font-weight: bold;
 }
