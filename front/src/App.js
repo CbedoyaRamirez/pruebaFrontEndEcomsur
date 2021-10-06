@@ -17,6 +17,7 @@ const App = () => {
   const [carro, setCarro] = useState([]);
   const [listaProductos, setListaProductos] = useState([]);
   const [buscarProductos, setBuscarProductos] = useState([]);
+  const [encontroProductos, setEncontroProductos] = useState(true);
   // const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
   // const { productos, carrito } = state;
 
@@ -74,6 +75,11 @@ const App = () => {
           .includes(keyboard.toLocaleLowerCase())
       );
       setBuscarProductos(productoEncontrado);
+      if(productoEncontrado.length === 0) {
+        setEncontroProductos(false)
+      }else {
+        setEncontroProductos(true)
+      }
     } else {
       setBuscarProductos(listaProductos);
     }
@@ -87,14 +93,14 @@ const App = () => {
         <DetalleCarro productosComprados={carro} />
       ) : null}
 
-      {listaProductos && listaProductos.length > 0 ? (
+      {encontroProductos ? (
         <Productos
           agregarProductosCarro={agregarProductosCarro}
           productos={buscarProductos}
         />
       ) : (
         <h1 className="noencontrados contenedor__productos--noregistros">
-          REGISTROS NO ENCONTRADOS
+          PRODUCTOS NO ENCONTRADOS
         </h1>
       )}
     </Layout>
