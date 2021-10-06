@@ -3,4 +3,5 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: url(https://www.ecomsur.com/wp-content/uploads/2020/03/back-slim-hero.jpg) center center / cover no-repeat rgb(34, 34, 34);
 }

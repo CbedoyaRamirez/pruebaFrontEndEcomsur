@@ -1,21 +1,28 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 import Modal from "../DetalleProducto/Modal";
+import ReactStars from "react-rating-stars-component";
 import "./Producto.css";
 
 function Producto({ imagenProducto, producto, agregarProductosCarro }) {
-
-  console.log(imagenProducto)
-
   const [active, setActive] = useState(false);
-
   const toogle = () => {
     setActive(!active);
+  };
+
+  const obtenerImagenProducto = async (nombreImagen) => {
+    return await axios
+      .get(`http://localhost:5000${nombreImagen}`, {
+        responseType: "blob",
+      })
+      .then((response) => response.data.message);
   };
 
   return (
     <div className="contenedor_producto">
       {/* <img className="producto" src={producto.image} alt={producto.name} /> */}
+      {/* <img className="producto" src={obtenerImagenProducto(producto.image)} alt={producto.name} /> */}
       <img className="producto" src={imagenProducto} alt={producto.name} />
       <h1 className="nombreProducto">{producto.name}</h1>
 
@@ -51,10 +58,15 @@ function Producto({ imagenProducto, producto, agregarProductosCarro }) {
           </div>
           <div className="descripcion">
             {" "}
-            <h3>Precio</h3> {producto.price}
+            <h3>Precio</h3>$ {producto.price}
           </div>
           <div className="descripcion">
-            <h3>Rating</h3> {producto.rating}
+            <ReactStars
+              count={producto.rating}
+              size={30}
+              edit= {false}
+              color = "#ff4800"
+            />
           </div>
         </div>
       </Modal>

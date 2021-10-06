@@ -1,7 +1,6 @@
 import React from "react";
 
 import Burbuja from "../Burbuja/Burbuja";
-import DetalleCarro from "../DetalleCarro/DetalleCarro";
 import "./Menu.css";
 
 function Menu({ productosComprados }) {
