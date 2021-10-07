@@ -92,6 +92,7 @@ const App = () => {
 
   const eliminarProductoLista = (producto) => {
     const filtro = carro.filter((prod) => prod._id !== producto._id);
+    sessionStorage.setItem("productosCarro", JSON.stringify(filtro));    
     setCarro(filtro);
   };
 
