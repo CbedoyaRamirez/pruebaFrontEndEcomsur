@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# Pasos para ejecutar la prueba tecnica Front Ecomsur 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requerimientos mínimos
 
-## Available Scripts
+Node 14.15.0
 
-In the project directory, you can run:
+## Clonar aplicacion
 
-### `yarn start`
+Se la concede permiso de clonar al siguiente correo : `kbarcelo@ecomsur.com`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  se debe realizar la descarga de los fuentes clonando el repositorio con el siguiente comando:
+    `git clone https://github.com/CbedoyaRamirez/pruebaFrontEndEcomsur.git`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Instalar y Correr la aplicación
 
-### `yarn test`
+Una vez clonada la aplicacion se debe realizar lo siguiente:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. En la carpeta `root` de la aplicacion correr:
+   `npm install`
+2. Navega al directorio `front` y vuelve a correr el comando:
+   `npm install`
+3. Regresa al directorio root `cd ..`.
 
-### `yarn build`
+Para ejecutar la aplicacion se debe correr con un solo comando :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   `npm run dev`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Esto correrá ambas aplicaciones (Express y CRA) al mismo tiempo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- CRA se encuentra en:
+  `http://localhost:3000/`
+  
+Pantallas :
 
-### `yarn eject`
+LISTADO DE PRODUCTOS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/7895342/136434697-7934b8fd-3040-4e5b-99dc-1a3f64e7ed7a.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+DETALLE DEL PRODUCTO
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/7895342/136434732-5785c9b9-95a6-4888-b505-91e6341ca5ec.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+CARRITO DE COMPRAS
 
-## Learn More
+![image](https://user-images.githubusercontent.com/7895342/136434757-05c94149-ce27-44d1-a5ea-e54e277a4c16.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Prueba tecnica Front Ecomsur 2021
 
-### Code Splitting
+### Por favor, empezar la prueba después de haber leído este documento completo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - [Requerimientos mínimos](#requerimientos-mínimos)
+  - [Instalar y Correr la aplicación](#instalar-y-correr-la-aplicación)
+  - [Descripción de la prueba](#descripción-de-la-prueba)
+  - [Reglas de entrega](#reglas-de-entrega)
 
-### Analyzing the Bundle Size
+## Requerimientos mínimos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Node 14.15.0
 
-### Making a Progressive Web App
+## Instalar y Correr la aplicación
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Instalar API (backend) y la aplicacion React (front):
 
-### Advanced Configuration
+1. En la carpeta `root` de la aplicacion correr:
+   `npm install`
+2. Navega al directorio `front` y vuelve a correr el comando:
+   `npm install`
+3. Regresa al directorio root `cd ..`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+La aplicación está compuesta de un servidor Express y una instalación básica de Create-React-App (CRA). Todo está configurado para correr con un solo comando
 
-### Deployment
+`npm run dev`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Esto correrá ambas aplicaciones (Express y CRA) al mismo tiempo.
 
-### `yarn build` fails to minify
+- CRA se encuentra en:
+  `http://localhost:3000/`
+ y se ve de la siguiente forma:
+ 
+ ![image](https://user-images.githubusercontent.com/7895342/136434513-b46eac05-4ef6-4a89-96de-e47bfbbca386.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- El servidor se encuentra en:
+  `http://localhost:5000/`
+
+- La lista de productos se encuentra:
+  `http://localhost:5000/api/products`
+
+- Puedes encontrar cada producto por su ID:
+  `http://localhost:5000/api/products/1`
+
+- Las imágenes se encuentran en:|
+  `http://localhost:5000/imagenes/{{nombre-de-la-imagen}}`
+
+## Descripción de la prueba
+
+Se requiere implementar un carrito de compras simple que traiga toda la info del API local, éste debe contar con las siguientes secciones:
+
+- Una lista de ítems mostrando el catálogo de productos. (Product List Page)
+- Página de producto mostrando detalle de producto. (Product Display Page)
+- Un carrito de compras que tenga todos los ítems que serán comprados por el usuario. (Cart Page)
+- Espacio donde se muestre la sincronización de los ítems añadidos al carrito. (Mini cart) ![mini cart example](/minicart-example.png)
+
+`Favor de no utilizar "CSS frameworks" como Bootstrap, MUI, Semantic UI, etc. Parte importante de la prueba es ver tu uso de CSS. No es necesario que la prueba tenga un diseño muy complejo, estamos evaluando funcionalidad, no diseño ni uso de colores.`
+`Puedes instalar cualquier Libreria NPM que gustes para facilitar el desarrollo (Axios para llamadas al API, Modals, transiciones, etc..)`
+
+#### Las reglas del negocio son:
+
+- Cada ítem del catálogo debe tener un action button con el texto `Add item to cart`.
+- Si no hay stock el `action button` debe deshabilitarse
+- Cada ítem en el carro debe tener un `action button` para remover el ítem del carro.
+- Los items en el carrito se deben de agrupar mostrando cantidad de cada producto añadido.
+
+#### Puntos extras:
+
+- Mostrar el rating y número de reviews en el PLP y PDP
+- Usar Redux para mantener el estado global.
+- Mantener info de ítems en carrito al recargar la página
+
+#### Notas
+
+- Recuerda la filosofía "Mobile-First Responsive Design".
+- Piensa en otras tiendas en linea que hayas usado. El publico final no es necesariamente alguien muy tecnico.
+- Si no utilizas el API local tu prueba será descartada.
+
+## Reglas de entrega
+
+1. Documenta la resolución de tu problema en un un archivo BITACORA.md, además, indica detalladamente cómo instalar las dependencias o archivos necesarios para correr tu aplicación.
+
+2. Es necesario que garantices que tu aplicación pueda correr en la máquina de otra persona.
+
+3. Sube tu respuesta a un repositorio en una cuenta tuya de GitHub, GitLab o BitBucket y da acceso a `kbarcelo@ecomsur.com` y posiblemente a otros correos que te pida RRHH
+
+## ¡Mucho éxito! 💪
