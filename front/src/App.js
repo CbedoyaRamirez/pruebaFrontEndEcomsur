@@ -32,6 +32,7 @@ const App = () => {
     };
     getApiResponse();
 
+    ///Obtiene los productos del API
     const obtenerListadoProductos = async () => {
       const listadoProd = await axios.get(URLPRODUCTOS);
       setBuscarProductos(listadoProd.data);
@@ -48,6 +49,7 @@ const App = () => {
     setActive(!active);
   };
 
+  ///Agregar productos al carrito de compras
   const agregarProductosCarro = (producto) => {
     setCarro([...carro, producto]);
     if (sessionStorage.getItem("productosCarro") !== null) {
@@ -68,6 +70,27 @@ const App = () => {
     const objLocalStorage = [...carro, nuevoObjeto];
     sessionStorage.setItem("productosCarro", JSON.stringify(objLocalStorage));
     return setCarro([...carro, nuevoObjeto]);
+  };
+
+  //Funcion que filtra por ID del producto
+  const filtradoPor = async (filtro) => {
+    const valor = filtro.target.value;
+    return await axios
+      .get(valor !== '' ? `http://localhost:5000/api/products/${valor}` : 'http://localhost:5000/api/products')
+      .then(response => {
+        if(response.data !== ''){
+          setEncontroProductos(true);  
+          valor !== '' 
+            ? setBuscarProductos(listaProductos.filter(prod => String(prod._id) === String(valor)))
+            : setBuscarProductos(listaProductos)
+        }else{
+          setBuscarProductos(listaProductos);
+          setEncontroProductos(false);  
+        }
+      }
+      ).catch(error => {
+        setEncontroProductos(false);
+      })
   };
 
   const buscarProducto = (producto) => {
@@ -92,14 +115,17 @@ const App = () => {
 
   const eliminarProductoLista = (producto) => {
     const filtro = carro.filter((prod) => prod._id !== producto._id);
-    sessionStorage.setItem("productosCarro", JSON.stringify(filtro));    
+    sessionStorage.setItem("productosCarro", JSON.stringify(filtro));
     setCarro(filtro);
   };
 
   return (
     <Layout>
       <Menu mostrarProductosComprados={toogle} productosComprados={carro} />
-      <Buscador buscarProducto={buscarProducto} />
+      <Buscador
+        filtradoSeleccion={filtradoPor}
+        buscarProducto={buscarProducto}
+      />
       <TituloTienda />
       {encontroProductos ? (
         <Productos

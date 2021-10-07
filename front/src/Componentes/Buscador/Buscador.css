@@ -15,3 +15,9 @@
 .buscador__input::placeholder {
     color: #237fff;
 }
+
+.buscador__select {
+    margin-right:  10px;
+    color: #000;
+    font-weight: bold;
+}
