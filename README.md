@@ -29,6 +29,21 @@ Esto correrá ambas aplicaciones (Express y CRA) al mismo tiempo.
 
 - CRA se encuentra en:
   `http://localhost:3000/`
+  
+Pantallas :
+
+LISTADO DE PRODUCTOS
+
+![image](https://user-images.githubusercontent.com/7895342/136434697-7934b8fd-3040-4e5b-99dc-1a3f64e7ed7a.png)
+
+DETALLE DEL PRODUCTO
+
+![image](https://user-images.githubusercontent.com/7895342/136434732-5785c9b9-95a6-4888-b505-91e6341ca5ec.png)
+
+CARRITO DE COMPRAS
+
+![image](https://user-images.githubusercontent.com/7895342/136434757-05c94149-ce27-44d1-a5ea-e54e277a4c16.png)
+
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Prueba tecnica Front Ecomsur 2021
