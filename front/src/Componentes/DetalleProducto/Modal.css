@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 600px;
+  min-height: 100%;
 }
 
 .modal__ventana {
@@ -35,6 +37,7 @@
   left: 0;
   background: #000;
   opacity: 0.4;
+  min-height: 100%;
 }
 
 .modal_cta {
@@ -48,15 +51,19 @@
   text-align: center;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 768px) {
   .modal {
-    position: fixed;
-    width: 50vw;
-    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }  
   
   .modal__ventana {
     min-width: 300px;
+  }
+
+  .modal__contenido {
+    width: 250px;
   }
 
 }

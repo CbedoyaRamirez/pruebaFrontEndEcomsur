@@ -71,3 +71,9 @@
     text-align: center;    
     margin: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    .contenedor_producto_modal--carrito {
+        /* width: 150px; */
+    }    
+}
