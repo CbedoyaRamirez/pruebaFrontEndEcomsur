@@ -34,13 +34,23 @@ Pantallas :
 
 LISTADO DE PRODUCTOS
 
+En esta pantalla se muestra el listado de productos que se consume del api
+
 ![image](https://user-images.githubusercontent.com/7895342/136434697-7934b8fd-3040-4e5b-99dc-1a3f64e7ed7a.png)
 
 DETALLE DEL PRODUCTO
 
+Se muestra el detalle del producto indicando el rating medianta estrellas
+
 ![image](https://user-images.githubusercontent.com/7895342/136434732-5785c9b9-95a6-4888-b505-91e6341ca5ec.png)
 
 CARRITO DE COMPRAS
+
+En este modal se muestran los productos añadidos al carrito junto a la cantidad y la opción
+de eliminar los productos añadidos
+
+Al momento de agregar productos al carro existe una burbuja que indica que se han añadido
+productos al carrito de compras mediante un numero y una animación.
 
 ![image](https://user-images.githubusercontent.com/7895342/136434757-05c94149-ce27-44d1-a5ea-e54e277a4c16.png)
 
