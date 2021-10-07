@@ -39,8 +39,8 @@ const App = () => {
     };
     obtenerListadoProductos();
 
-    if(localStorage.getItem("productosCarro") !== null) {
-      setCarro([...JSON.parse(localStorage.getItem("productosCarro"))]);
+    if(sessionStorage.getItem("productosCarro") !== null) {
+      setCarro([...JSON.parse(sessionStorage.getItem("productosCarro"))]);
     }
   }, []);
 
@@ -50,7 +50,7 @@ const App = () => {
 
   const agregarProductosCarro = (producto) => {
     setCarro([...carro, producto]);
-    if (localStorage.getItem("productosCarro") !== null) {
+    if (sessionStorage.getItem("productosCarro") !== null) {
       if (carro.find((prod) => prod._id === producto._id)) {
         const nuevoCarro = carro.map((prod) =>
           prod._id === producto._id
@@ -60,13 +60,13 @@ const App = () => {
               }
             : prod
         );
-        localStorage.setItem("productosCarro", JSON.stringify(nuevoCarro));
+        sessionStorage.setItem("productosCarro", JSON.stringify(nuevoCarro));
         return setCarro([...nuevoCarro]);
       }
     }
     const nuevoObjeto = { ...producto, cantidad: 1 };
     const objLocalStorage = [...carro, nuevoObjeto];
-    localStorage.setItem("productosCarro", JSON.stringify(objLocalStorage));
+    sessionStorage.setItem("productosCarro", JSON.stringify(objLocalStorage));
     return setCarro([...carro, nuevoObjeto]);
   };
 
@@ -112,7 +112,7 @@ const App = () => {
       )}
 
       <Modal active={active} toogle={toogle}>
-        <div className="contenedor_producto_modal contenedor_producto_modal--carrito">
+        <div className="contenedor_producto_modal--carrito">
           {carro && carro.length > 0 ? (
             <p className="contenedor__titulo">Productos comprados</p>
           ) : null}
