@@ -10,7 +10,7 @@ function Menu({ productosComprados, mostrarProductosComprados }) {
   return (
     <nav className="nav">
       <div className="nav__items">
-        <img className="nav__logo" src="./images/ecomsur_logo.png" />
+        <img className="nav__logo" src="./images/ecomsur_logo.png" alt="logo Ecomsur"/>
         <p className="nav__titulo">Prueba Carlos Bedoya</p>
       </div>
       <div className="nav__carro">
@@ -18,7 +18,7 @@ function Menu({ productosComprados, mostrarProductosComprados }) {
           <Burbuja cantidadElementos={cantidad} />
         ) : null}
         <img
-          className="menu__item menu__item--carro"
+          className="menu__item menu__item--carro" alt="logo Carrito compras"
           src="./images/carro.png" onClick={mostrarProductosComprados}
         ></img>
       </div>
