@@ -52,7 +52,14 @@ de eliminar los productos añadidos
 Al momento de agregar productos al carro existe una burbuja que indica que se han añadido
 productos al carrito de compras mediante un numero y una animación.
 
-Los productos agregados al carro se mantedran si se refresca la pagina ya que se usa el sessionstorage para lograrlo, solo
-cuando se cierra el navegador, los productos desapereceran.
-
 ![image](https://user-images.githubusercontent.com/7895342/136434757-05c94149-ce27-44d1-a5ea-e54e277a4c16.png)
+
+BUSCADOR DE PRODUCTOS
+
+Se implementa el buscador de productos
+
+- Por nombre del producto
+- Por id del producto (El api solo permite la busqueda por id, sin embargo no es muy util ya que el cliente no conoce el id)
+
+![image](https://user-images.githubusercontent.com/7895342/136458036-904d857d-4b49-4ad6-8f9a-b3c7be94ac2e.png)
+
