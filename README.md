@@ -63,10 +63,8 @@ Esto correrá ambas aplicaciones (Express y CRA) al mismo tiempo.
 - CRA se encuentra en:
   `http://localhost:3000/`
  y se ve de la siguiente forma:
- ![Running app](/running-app.png)
  
  ![image](https://user-images.githubusercontent.com/7895342/136434513-b46eac05-4ef6-4a89-96de-e47bfbbca386.png)
-
 
 - El servidor se encuentra en:
   `http://localhost:5000/`
